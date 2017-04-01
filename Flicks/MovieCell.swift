@@ -15,3 +15,4 @@ class MovieCell: UITableViewCell {
     @IBOutlet weak var movieOverviewLabel: UILabel!
 
 }
+
