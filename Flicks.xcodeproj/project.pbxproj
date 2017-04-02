@@ -13,6 +13,7 @@
 		E9B502401E902C43005403EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9B5023E1E902C43005403EF /* Main.storyboard */; };
 		E9B502421E902C43005403EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9B502411E902C43005403EF /* Assets.xcassets */; };
 		E9B502451E902C43005403EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9B502431E902C43005403EF /* LaunchScreen.storyboard */; };
+		E9BB5DEA1E90B35800451B13 /* Flicks.gif in Resources */ = {isa = PBXBuildFile; fileRef = E9BB5DE91E90B35800451B13 /* Flicks.gif */; };
 		E9E0D2951E902F7F0023CE2E /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = E9E0D2931E902F7F0023CE2E /* Podfile.lock */; };
 		E9E0D2981E9031900023CE2E /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E0D2971E9031900023CE2E /* MoviesViewController.swift */; };
 		E9E0D29A1E9031AB0023CE2E /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E0D2991E9031AB0023CE2E /* MovieCell.swift */; };
@@ -29,6 +30,7 @@
 		E9B502411E902C43005403EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9B502441E902C43005403EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9B502461E902C43005403EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9BB5DE91E90B35800451B13 /* Flicks.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Flicks.gif; sourceTree = "<group>"; };
 		E9E0D2931E902F7F0023CE2E /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		E9E0D2941E902F7F0023CE2E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E9E0D2971E9031900023CE2E /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			children = (
 				E9E0D2931E902F7F0023CE2E /* Podfile.lock */,
 				E9E0D2941E902F7F0023CE2E /* README.md */,
+				E9BB5DE91E90B35800451B13 /* Flicks.gif */,
 				E9B502391E902C42005403EF /* Flicks */,
 				E9B502381E902C42005403EF /* Products */,
 				CE21CDE457642531E9289AC7 /* Pods */,
@@ -166,6 +169,7 @@
 			files = (
 				E9B502451E902C43005403EF /* LaunchScreen.storyboard in Resources */,
 				E9B502421E902C43005403EF /* Assets.xcassets in Resources */,
+				E9BB5DEA1E90B35800451B13 /* Flicks.gif in Resources */,
 				E9E0D2951E902F7F0023CE2E /* Podfile.lock in Resources */,
 				E9B502401E902C43005403EF /* Main.storyboard in Resources */,
 			);

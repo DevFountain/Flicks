@@ -98,9 +98,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         Alamofire.request("https://api.themoviedb.org/3/movie/\(apiEndpoint!)?api_key=\(kTMDbAPIKey)").validate().responseJSON { (response) in
             switch response.result {
             case .success:
-                print("Validation Successful")
                 if let json = response.result.value as? NSDictionary {
-                    print("JSON: \(json)")
                     self.movies = json["results"] as? [NSDictionary]
                     self.tableView.reloadData()
                     MBProgressHUD.hide(for: self.view, animated: true)

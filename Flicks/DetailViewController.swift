@@ -30,7 +30,7 @@ class DetailViewController: UIViewController {
 
         if let posterPath = movie?["poster_path"] as? String {
             let posterUrl = URL(string: "https://image.tmdb.org/t/p/w500/\(posterPath)")!
-            movieImageView.af_setImage(withURL: posterUrl)//, placeholderImage: placeholderImage)
+            movieImageView.af_setImage(withURL: posterUrl, imageTransition: .crossDissolve(0.3), runImageTransitionIfCached: false)
         } else {
             movieImageView.image = nil
         }
