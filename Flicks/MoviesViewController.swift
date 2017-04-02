@@ -13,6 +13,8 @@ import MBProgressHUD
 
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var networkStatusView: UIView!
+    @IBOutlet weak var networkStatusLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
 
     var movies: [NSDictionary]?
@@ -77,7 +79,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                     MBProgressHUD.hide(for: self.view, animated: true)
                 }
             case .failure(let error):
-                print("Error: \(error)")
+                self.networkStatusView.isHidden = false
+                self.networkStatusLabel.text = error.localizedDescription
                 MBProgressHUD.hide(for: self.view, animated: true)
             }
         }

@@ -80,17 +80,40 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="kv2-rZ-vWg"/>
                                 </connections>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ije-Ch-tQ2">
+                                <rect key="frame" x="0.0" y="64" width="375" height="32"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVy-vc-ZF0">
+                                        <rect key="frame" x="125" y="6" width="124" height="21"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="GVy-vc-ZF0" firstAttribute="centerX" secondItem="Ije-Ch-tQ2" secondAttribute="centerX" id="Hv1-Wu-2Ud"/>
+                                    <constraint firstItem="GVy-vc-ZF0" firstAttribute="top" secondItem="Ije-Ch-tQ2" secondAttribute="top" constant="5" id="kNo-j4-BI3"/>
+                                    <constraint firstAttribute="height" constant="32" id="oVb-m4-1hX"/>
+                                    <constraint firstAttribute="bottom" secondItem="GVy-vc-ZF0" secondAttribute="bottom" constant="6" id="ovp-b4-HhZ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5bw-II-d9R" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="15L-TA-a06"/>
                             <constraint firstItem="5bw-II-d9R" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="4Hd-Iv-ufb"/>
                             <constraint firstItem="5bw-II-d9R" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IK8-O3-b9f"/>
+                            <constraint firstItem="Ije-Ch-tQ2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="LHG-p0-wLt"/>
+                            <constraint firstItem="Ije-Ch-tQ2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Sff-pT-kUc"/>
                             <constraint firstAttribute="trailing" secondItem="5bw-II-d9R" secondAttribute="trailing" id="WlB-In-OfR"/>
+                            <constraint firstAttribute="trailing" secondItem="Ije-Ch-tQ2" secondAttribute="trailing" id="p4h-iQ-Jfx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OVe-Gh-ftU"/>
                     <connections>
+                        <outlet property="networkStatusLabel" destination="GVy-vc-ZF0" id="atK-Vw-ZQE"/>
+                        <outlet property="networkStatusView" destination="Ije-Ch-tQ2" id="ez5-D0-ZHa"/>
                         <outlet property="tableView" destination="5bw-II-d9R" id="0uK-mV-AD2"/>
                     </connections>
                 </viewController>
