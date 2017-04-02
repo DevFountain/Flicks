@@ -11,7 +11,7 @@ import Alamofire
 import AlamofireImage
 import MBProgressHUD
 
-class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
 
     @IBOutlet weak var networkStatusView: UIView!
     @IBOutlet weak var networkStatusLabel: UILabel!
@@ -20,7 +20,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     var movies: [NSDictionary]?
 
     var apiEndpoint: String!
-    
+
+    var filteredMovies: [NSDictionary]!
+
+    var searchController: UISearchController!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,6 +35,17 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: .valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
+
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+
+        searchController.searchBar.sizeToFit()
+        navigationItem.titleView = searchController.searchBar
+
+        definesPresentationContext = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,17 +54,27 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let movies = movies {
-            return movies.count
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredMovies.count
         } else {
-            return 0
+            if let movies = movies {
+                return movies.count
+            } else {
+                return 0
+            }
         }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
 
-        let movie = movies?[indexPath.row]
+        var movie: NSDictionary!
+
+        if searchController.isActive && searchController.searchBar.text != "" {
+            movie = filteredMovies[indexPath.row]
+        } else {
+            movie = movies?[indexPath.row]
+        }
 
         let movieTitle = movie?["title"] as? String
         cell.movieTitleLabel.text = movieTitle
@@ -96,6 +121,18 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         networkRequest()
 
         refreshControl.endRefreshing()
+    }
+
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            filteredMovies = searchText.isEmpty ? movies : movies?.filter({ (movie) -> Bool in
+                if let movieTitle = movie["title"] as? String {
+                    return movieTitle.range(of: searchText, options: .caseInsensitive) != nil
+                }
+                return false
+            })
+            tableView.reloadData()
+        }
     }
 
     // MARK: - Navigation
