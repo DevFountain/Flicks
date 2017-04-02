@@ -68,8 +68,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     func networkRequest() {
-        self.apiEndpoint = "now_playing"
-
         MBProgressHUD.showAdded(to: self.view, animated: true)
 
         Alamofire.request("https://api.themoviedb.org/3/movie/\(apiEndpoint!)?api_key=\(kTMDbAPIKey)").validate().responseJSON { (response) in
