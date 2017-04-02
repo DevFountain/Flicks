@@ -27,6 +27,10 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         // Do any additional setup after loading the view.
 
         networkRequest()
+
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: .valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -84,6 +88,16 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                 MBProgressHUD.hide(for: self.view, animated: true)
             }
         }
+    }
+
+    func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        if !networkStatusView.isHidden {
+            networkStatusView.isHidden = true
+        }
+
+        networkRequest()
+
+        refreshControl.endRefreshing()
     }
 
     // MARK: - Navigation
