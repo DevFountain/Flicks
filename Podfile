@@ -10,5 +10,6 @@ target 'Flicks' do
   # Pods for Flicks
   pod 'Alamofire', '~> 4.4'
   pod 'AlamofireImage', '~> 3.1'
+  pod 'MBProgressHUD'
 
 end

@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import MBProgressHUD
 
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -62,6 +63,9 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
     func networkRequest() {
         self.apiEndpoint = "now_playing"
+
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+
         Alamofire.request("https://api.themoviedb.org/3/movie/\(apiEndpoint!)?api_key=\(kTMDbAPIKey)").validate().responseJSON { (response) in
             switch response.result {
             case .success:
@@ -70,9 +74,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                     print("JSON: \(json)")
                     self.movies = json["results"] as? [NSDictionary]
                     self.tableView.reloadData()
+                    MBProgressHUD.hide(for: self.view, animated: true)
                 }
             case .failure(let error):
                 print("Error: \(error)")
+                MBProgressHUD.hide(for: self.view, animated: true)
             }
         }
     }
