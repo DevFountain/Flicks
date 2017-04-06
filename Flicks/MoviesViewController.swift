@@ -82,11 +82,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let movieOverview = movie?["overview"] as? String
         cell.movieOverviewLabel.text = movieOverview
 
+        cell.movieImageView.image = nil
+
         if let posterPath = movie?["poster_path"] as? String {
             let posterUrl = URL(string: "https://image.tmdb.org/t/p/w500/\(posterPath)")!
             cell.movieImageView.af_setImage(withURL: posterUrl, imageTransition: .crossDissolve(0.3), runImageTransitionIfCached: false)
-        } else {
-            cell.movieImageView.image = nil
         }
 
         return cell
