@@ -1,6 +1,6 @@
-# Project 1 - Flicks
+# Project 1 - *Flicks*
 
-Flicks is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
+**Flicks** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
 Time spent: **8** hours spent in total
 
